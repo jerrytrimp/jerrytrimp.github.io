@@ -63,7 +63,7 @@ gulp.task('buildCss', function () {
         }))
         .pipe(sass())
         .pipe(concat('styles.css'))
-
+        .pipe(stripCssComments())
         .pipe(rewriteCss({destination: buildFilesPath+cssPath+'/'}))
 
        /* .pipe(uncss({
@@ -209,7 +209,6 @@ gulp.task('angular-min', function () {
             'ng-build-css',
             'ng-min-html',
             'ng-min-assets-js',
-            'ng-copy-angular-assets-js',
             'ng-copy-images',
             'ng-copy-bower-components',
             'ng-min-components'
@@ -250,7 +249,7 @@ gulp.task('ng-min-assets-js', function () {
         .pipe(concat('resources.js'))
         .pipe(uglify({mangle: false}))
         .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(/*angularMinFolder + "/" +*/ appFilesPath + assetspath + javascriptPath))
+        .pipe(gulp.dest(angularMinFolder + "/" + appFilesPath + assetspath + javascriptPath))
 });
 
 gulp.task('ng-min-html', function () {
@@ -316,6 +315,10 @@ gulp.task('ng-build-css', function () {
         }))
         .pipe(sass())
         .pipe(concat('styles.css'))
+        .pipe(stripCssComments())
+        .pipe(uncss({
+            html: [appFilesPath + '/**/*.html']
+        }))
         .pipe(rewriteCss({destination: angularMinFolder + "/" + appFilesPath + assetspath + cssPath}))
         .pipe(nano())
         .pipe(rename({suffix: '.min'}))
