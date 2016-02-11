@@ -1,0 +1,48 @@
+{
+  "status_code": 200,
+  "destinations": [
+    {
+      "id": 1,
+      "title": "New York",
+      "from_date": "25-08-2015",
+      "to_date": "02-09-2015",
+      "photo": "https://drscdn.500px.org/photo/124293051/m%3D900/e4127293c952c00e20c5351328428d9f",
+      "visited_places": [
+        {
+          "id": 1,
+          "title": "The Staten Island Ferry",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolorem eius enim nisi praesentium, quia. At autem beatae corporis, culpa officiis quae! Ab aut commodi dicta quasi quibusdam recusandae voluptatem.",
+          "photos": [
+            {
+              "id": 1,
+              "title": "Ferry view black and white",
+              "link": "https://drscdn.500px.org/photo/124293051/m%3D900/e4127293c952c00e20c5351328428d9f"
+            },
+            {
+              "id": 2,
+              "title": "Lady Liberty",
+              "link": "https://drscdn.500px.org/photo/124293051/m%3D900/e4127293c952c00e20c5351328428d9f"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Central park",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos dolorem eius enim nisi praesentium, quia. At autem beatae corporis, culpa officiis quae! Ab aut commodi dicta quasi quibusdam recusandae voluptatem.",
+          "photos": [
+            {
+              "id": 1,
+              "title": "Central park fountain",
+              "link": "https://drscdn.500px.org/photo/124293051/m%3D900/e4127293c952c00e20c5351328428d9f"
+            },
+            {
+              "id": 2,
+              "title": "Famous street",
+              "link": "https://drscdn.500px.org/photo/124293051/m%3D900/e4127293c952c00e20c5351328428d9f"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

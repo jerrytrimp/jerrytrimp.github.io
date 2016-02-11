@@ -1,0 +1,26 @@
+.lightbox {
+  &Title {
+    text-align: center;
+    font-family: $handwritten-font;
+    padding: 0 $default-padding $default-padding $default-padding;
+    margin: 0;
+  }
+
+  &Image {
+    padding: $default-padding;
+    max-height: 70vh;
+    max-width:100%;
+    margin: auto;
+    display: block;
+
+
+    @media all and (min-width: $bootstrap-min-sm) and (max-width: $bootstrap-min-md) {
+      max-height: 55vh;
+    }
+  }
+
+  .modal-content {
+    border-radius: 0;
+    border: 0;
+  }
+}
