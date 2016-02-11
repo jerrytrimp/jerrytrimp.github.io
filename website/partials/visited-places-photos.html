@@ -1,0 +1,58 @@
+<div class="destinationsTopicContentPane"
+     ng-class="{'opened': lastClickedVisitedPlace == visited_place.id}">
+    <h2 class="destinationsTopicContentPane-title">{{visited_place.title}}</h2>
+    <p class="destinationsTopicContentPane-description">{{visited_place.description}}</p>
+
+    <span class="pull-right editDelete">
+        <button class="btn btn-xs btn-info"
+                ng-click="edit('Visited_places',visited_place.$id,'#editVisitedPlaceModal')"
+                data-target="#editVisitedplaceModal">EDIT
+        </button>
+        <button class="btn btn-xs btn-warning"
+                ng-click="confirm('Visited_places',visited_place.$id,visited_place.id,'#deleteVisitedPlaceModal')"
+                data-target="#deleteVisitedplaceModal">DELETE
+        </button>
+    </span>
+
+    <section class="destinationsTopicContentPane-photos">
+        <span class="add">
+                            <button class="btn btn-xs btn-info"
+                                    ng-click="add('#addPhotoModal')"
+                                    data-target="#addPhotoModal">ADD Photo
+                            </button>
+                          </span>
+
+        <ul class="destinationsTopicContentPane-photosList">
+            <li ng-repeat="photo in photos | filter:byVisitedPlace(visited_place.id)"
+                class="destinationsTopicContentPane-photosListItem" ng-click="fillLightbox($event,photo.title,photo.link)">
+
+                <div class="destinationsTopicContentPane-photosListItemWrapper">
+
+                    <a href="#" title="{{photo.title}}" class="destinationsTopicContentPane-photosListItemWrapperLink" data-toggle="modal" data-target="#lightbox">
+
+                        <!-- use lazy loading when the screen is small to preserve data -->
+                        <img ng-if="visited_place.id == lastClickedVisitedPlace"
+                             lazy-img="{{photo.link}}" src="" ng-class="photo.position" alt="{{photo.title}}"
+                             class="destinationsTopicContentPane-photosListItemWrapperPhoto"/>
+
+
+                        <h4 class="destinationsTopicContentPane-photosListItemWrapperTitle">{{photo.title}}</h4>
+
+                    </a>
+                    <span class="editDelete">
+                            <button class="btn btn-xs btn-info"
+                                    ng-click="edit('Photos',photo.$id,'#editPhotoModal')"
+                                    data-target="#editPhotoModal">EDIT
+                            </button>
+                            <button class="btn btn-xs btn-warning"
+                                    ng-click="confirm('Photos',photo.$id,photo.id,'#deletePhotoModal')"
+                                    data-target="#deletePhotoModal">DELETE
+                            </button>
+                        </span>
+                </div>
+
+            </li>
+        </ul>
+
+    </section>
+</div>

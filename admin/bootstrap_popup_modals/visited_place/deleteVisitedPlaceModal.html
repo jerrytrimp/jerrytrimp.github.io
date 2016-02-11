@@ -1,0 +1,20 @@
+<div class="modal fade" id="deleteVisitedPlaceModal" tabindex="-1" role="dialog"
+     aria-labelledby="deleteVisitedPlacesModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="text-align:center;">
+                <h4 class="modal-title" style="color:red;" id="deleteVisitedPlacesModalLabel">You are going to Delete
+                    this
+                    visited place forever !!</h4>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary"
+                        ng-click="delete('Visited_places','#deleteVisitedPlaceModal')">Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
