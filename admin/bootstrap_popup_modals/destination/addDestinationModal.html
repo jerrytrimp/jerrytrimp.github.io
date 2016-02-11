@@ -1,0 +1,119 @@
+<div class="modal fade" id="addDestinationModal" tabindex="-1" role="dialog"
+     aria-labelledby="addDestinationModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addDestinationModalLabel">Add Destination</h4>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="add()">
+
+                    <fieldset>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-12 col-md-12 control-label" for="addDestinationTitle">Title</label>
+                            <div class="col-xs-12 col-md-12">
+                                <input id="addDestinationTitle" name="addDestinationTitle" ng-model="newEntityToAdd.title" type="text"
+                                       ng-minlength="4" ng-maxlength="20" placeholder="Name of destination" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-12 col-md-12 control-label" for="addDestinationFromDate">From Date</label>
+                            <div class="col-xs-12 col-md-12">
+                                <input id="addDestinationFromDate" name="addDestinationFromDate" ng-model="newEntityToAdd.fromDate"
+                                       type="date"
+                                       class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-12 col-md-12 control-label" for="addDestinationToDate">To Date</label>
+                            <div class="col-xs-12 col-md-12">
+                                <input id="addDestinationToDate" name="addDestinationToDate" ng-model="newEntityToAdd.toDate" type="date"
+                                       class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-12 col-md-12 control-label" for="addDestinationCoverPhotoUrl">Cover photo Url</label>
+                            <div class="col-xs-12 col-md-12">
+                                <input id="addDestinationCoverPhotoUrl" name="addDestinationCoverPhotoUrl" ng-model="newEntityToAdd.coverphotolink"
+                                       type="url"
+                                       placeholder="Cover photo Url" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-12 control-label" for="editDestinationCoverPhotoPosition">Cover photo position</label>
+                            <div class="col-xs-12">
+                                <select id="editDestinationCoverPhotoPosition" ng-model="newEntityToAdd.coverphotoposition">
+                                    <option value="image-top-left">Top Left</option>
+                                    <option value="image-top-center">Top Center</option>
+                                    <option value="image-top-right">Top Right</option>
+                                    <option value="image-center-left">Center Left</option>
+                                    <option value="image-center-center">Center Center</option>
+                                    <option value="image-center-right">Center Right</option>
+                                    <option value="image-bottom-left">Bottom Left</option>
+                                    <option value="image-bottom-center">Bottom Center</option>
+                                    <option value="image-bottom-right">Bottom Right</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+                <div class="addedEntities">
+
+                    <article id="{{destination.id}}" ng-repeat="destination in entitiesToAdd | orderBy: 'id':true" class="destinationsTopic"
+                             ng-click="setLastClickedDestination(destination.id)" ng-class="{'opened': clickedDestination == destination.id}">
+                        <section class="destinationsTopicWrapper">
+                            <div class="destinationsTopicWrapper-info">
+                                <p class="destinationsTopicWrapper-infoText">Van {{destination.fromDate}} tot {{destination.toDate}}</p>
+                            </div>
+                            <div class="destinationsTopicWrapper-backgroundWrapper">
+
+                                <div ng-class="destination.coverphotoposition"
+                                     class="destinationsTopicWrapper-backgroundWrapperBackground"
+                                     ng-style="{'background-image':'url({{destination.coverphotolink}})'}">
+                                </div>
+                                <h3 class="destinationsTopicWrapper-backgroundWrapperTitle">{{destination.title}}</h3>
+
+
+                            </div>
+
+                        </section>
+
+                    </article>
+
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button"
+                        ng-disabled="!newEntityToAdd.title || !newEntityToAdd.fromDate || !newEntityToAdd.toDate"
+                        name="singlebutton" class="btn btn-primary segoe-ui-light ladda-button"
+                        ng-click="createEntity('Destinations')">
+                    Add
+                </button>
+                <button type="button"
+                        name="singlebutton"
+                        class="btn btn-primary segoe-ui-light ladda-button"
+                        ng-click="addEntities('','Destinations','#addDestinationModal')">
+                    Publish All
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

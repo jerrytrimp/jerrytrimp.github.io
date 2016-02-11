@@ -1,0 +1,61 @@
+<div class="modal fade" id="addVisitedPlaceModal" tabindex="-1" role="dialog"
+     aria-labelledby="addVisitedPlacesModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                        aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="addVisitedPlacesModalLabel">Add Visited Place</h4>
+            </div>
+            <div class="modal-body">
+                <form ng-submit="add()">
+                    <fieldset>
+
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-12 control-label" for="addVisitedPlacesTitle">Title</label>
+                            <div class="col-xs-12">
+                                <input id="addVisitedPlacesTitle" name="addVisitedPlacesTitle"
+                                       ng-model="newEntityToAdd.title" type="text" ng-minlength="4" ng-maxlength="20"
+                                       placeholder="Name of visited place" class="form-control input-md">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-xs-12 control-label" for="addVisitedPlacesDescription">Description</label>
+                            <div class="col-xs-12">
+                                <textarea ng-model="newEntityToAdd.description" class="form-control input-md" name="addVisitedPlacesDescription"
+                                          id="addVisitedPlacesDescription" cols="30" rows="10" ng-minlength="150"></textarea>
+                            </div>
+                        </div>
+
+                    </fieldset>
+                </form>
+
+                <ul class="addedEntities">
+                    <li class="visited-places" ng-repeat="visited_place in entitiesToAdd | orderBy: 'id':true"></li>
+                </ul>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                <button type="button"
+                        ng-disabled="!newEntityToAdd.title || !newEntityToAdd.description"
+                        name="singlebutton" class="btn btn-primary segoe-ui-light ladda-button"
+                        ng-click="createEntity('Visited_places')">
+                    Add
+                </button>
+                <button type="button"
+                        name="singlebutton" class="btn btn-primary segoe-ui-light ladda-button"
+                        ng-click="addEntities('','Visited_places','#addVisitedPlaceModal')">
+                    Publish All
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
