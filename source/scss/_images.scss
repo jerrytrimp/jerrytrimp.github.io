@@ -1,0 +1,36 @@
+//controls the way the image is shown in its container (destination image and images inside of a landmark)
+.image-top-left {
+  background-position: left top !important;
+}
+
+.image-top-center {
+  background-position: center top !important;
+}
+
+.image-top-right {
+  background-position: right top !important;
+}
+
+.image-center-left {
+  background-position: left center !important;
+}
+
+.image-center-center {
+  background-position: center center !important;
+}
+
+.image-center-right {
+  background-position: right center !important;
+}
+
+.image-bottom-left {
+  background-position: left bottom !important;
+}
+
+.image-bottom-center{
+  background-position: center bottom !important;
+}
+
+.image-bottom-right {
+  background-position: right bottom !important;
+}

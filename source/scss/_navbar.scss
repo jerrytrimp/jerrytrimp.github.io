@@ -1,0 +1,56 @@
+/*navbar*/
+.navbar {
+  height: 50px;
+  background-color: $color-black;
+  padding: $default-padding;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  z-index: 6;
+
+  @media (max-width: $bootstrap-min-sm) {
+    position: fixed;
+  }
+
+  &List {
+    position: relative;
+    list-style-type: none;
+    height: 100%;
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    &Item {
+      display: inline-block;
+      padding: 0 $default-padding;
+      margin: 0;
+      float: right;
+
+      @media (max-width: $bootstrap-min-sm) {
+        &:nth-of-type(1) {
+          float: left;
+        }
+      }
+      padding: 0 ($default-padding * 3);
+
+      &Link {
+        padding: 0;
+        color: $color-white;
+        text-decoration: none;
+        line-height: 25px;
+        font-family: $default-font;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+    }
+  }
+}

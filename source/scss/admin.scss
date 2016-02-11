@@ -1,0 +1,71 @@
+
+  label{
+    color:$color-white;
+  }
+
+
+  h2{
+    color:$color-white;
+    text-align: center;
+    font-size: 24px;
+  }
+
+
+
+.topBar {
+  width: 100%;
+  min-height: 50px;
+  background-color: #000;
+  position: relative;
+  margin: 0;
+  padding:$default-padding;
+
+  .logout {
+    float: right;
+    margin: $default-padding 0 $default-padding $default-padding;
+  }
+}
+
+.wrapper.admin{
+
+
+
+  .destinations {
+    .add {
+      padding-left: 10px;
+      padding-top: 10px;
+      position: absolute;
+      display: block;
+      z-index: 9999;
+    }
+
+    &TopicContent{
+      .add {
+        padding: 0;
+        margin-top:-10px;
+      }
+
+      &Pane-photos{
+        .add {
+          margin-top:10px;
+        }
+      }
+    }
+
+    .editDelete {
+      display: block;
+      padding-left: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .pull-right {
+    display: block;
+    z-index: 9999;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+
+}
